@@ -46,6 +46,7 @@ public class FileFinderServiceImpl implements FileFinderService {
     @Override
     public List<Path> findUniqueFilesByFileExtension(String fileExtension) {
         List<Path> files = findFilesByFileExtension(fileExtension);
+        Collections.sort(files);
         Map<String,Path> uniqueFiles = new HashMap<>();
         files.forEach(file->uniqueFiles.put(file.getFileName().toString(),file));
 
