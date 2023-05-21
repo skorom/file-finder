@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+
+  database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=strongPass
+      - POSTGRES_USER=korom
+      - POSTGRES_DB=finder
+    volumes:
+       - postgres-db:/data/postgres
+    ports:
+      - 5432:5432
+
+  file-finder-1:
+    image: file-finder
+    restart: always
+    ports:
+      - 8081:8080
+    environment:
+      - USERNAME=${USERNAME_1}
+      - ROOT_PATH=/files
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_SCHEMA=finder
+      - DB_USER=korom
+      - DB_PASSWORD=strongPass
+    volumes:
+      - ${DIRECTORY_1}:/files
+    depends_on:
+      - database
+  file-finder-2:
+    image: file-finder
+    restart: always
+    ports:
+      - 8082:8080
+    environment:
+      - USERNAME=${USERNAME_2}
+      - ROOT_PATH=/files
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_SCHEMA=finder
+      - DB_USER=korom
+      - DB_PASSWORD=strongPass
+    volumes:
+      - ${DIRECTORY_2}:/files
+    depends_on:
+      - database
+
+volumes:
+  postgres-db:
+    driver: local
