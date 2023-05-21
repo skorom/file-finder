@@ -57,15 +57,24 @@ $ git --version
 ```
 
 # Clone the project
+
 Go to your favourite directory through a command line and execute the following command:
+
 ## Linux:
+
 `git clone https://github.com/skorom/file-finder.git && cd file-finder`
+
 ## Windows:
+
 `git clone https://github.com/skorom/file-finder.git; cd file-finder`
+
 # Start the service
+
 Make sure that you are in the project's directory and start the service by the following command:
 
 `make run`
+
+:warning: **If you are using Windows**, do not forget to change the default directory!
 
 In the background, 2 instances will be started by the service. The first one will be exposed to the `8081` port,
 the second one will be exposed to the `8082` port.
@@ -76,7 +85,7 @@ the second one will be exposed to the `8082` port.
 |-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | http://localhost:8081/swagger-ui/index.html   | The main page of the Swagger UI                                                                                              |
 | http://localhost:8081/findfile/{filextension} | REST GET endpoint to find the files by a file extension.<br/>Example: http://localhost:8081/findfile/txt                     |
- | http://localhost:8081/history/{username} | REST GET endpoint to get the executed queries (and results) for a user.<br/>Example: http://localhost:8081/history/instance1 |
+ | http://localhost:8081/history/{username}      | REST GET endpoint to get the executed queries (and results) for a user.<br/>Example: http://localhost:8081/history/instance1 |
 
 ## Configuration possibilities
 In the `Makefile` you can see the configurable variables (described in the [beginning](#business-logic))
@@ -87,8 +96,3 @@ export USERNAME_2 :=instance2
 export DIRECTORY_1 :=/etc/systemd
 export DIRECTORY_2 :=/usr/systemd
 ```
-
-
-# file-finder
-A JAVA + Spring Boot microservice to find files by extension. A great end-to-end project from cloud technologies perspective (Java + Maven + Spring Boot + PostgreSQL + Docker/Podman + Make)
-
