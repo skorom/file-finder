@@ -3,6 +3,10 @@ package com.korom.filefinder.dto;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A POJO Java representation of the file query response.
+ * It contains the result of find files query.
+ */
 public class FileFinderResponseDto {
 
     private List<String> files;

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
+/**
+ * A global exception handling class on the top of the REST controllers.
+ */
 @ControllerAdvice
 public class CommonController {
 

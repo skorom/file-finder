@@ -1,11 +1,17 @@
 package com.korom.filefinder.dto.jpa;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The model class is part of the JAVA representation of the historical data.
+ * This particular class stores 1 element of a query result with all the necessary metadata.
+ */
 @Entity
 @Table(name="query_history")
 public class QueryHistory {
@@ -17,7 +23,8 @@ public class QueryHistory {
     @Column(name ="username")
     private String username;
     @Column(name ="executed")
-    private Date executed;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime executed;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name="queried_files", joinColumns = @JoinColumn(name = "id"))
@@ -27,7 +34,7 @@ public class QueryHistory {
     public QueryHistory() {
     }
 
-    public QueryHistory(String username, Date executed, Set<QueriedFile> filePaths) {
+    public QueryHistory(String username, LocalDateTime executed, Set<QueriedFile> filePaths) {
         this.username = username;
         this.executed = executed;
         this.filePaths = filePaths;
@@ -49,11 +56,11 @@ public class QueryHistory {
         this.username = username;
     }
 
-    public Date getExecuted() {
+    public LocalDateTime getExecuted() {
         return executed;
     }
 
-    public void setExecuted(Date executed) {
+    public void setExecuted(LocalDateTime executed) {
         this.executed = executed;
     }
 

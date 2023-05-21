@@ -1,5 +1,9 @@
 package com.korom.filefinder.dto;
 
+/**
+ * A POJO JAVA representation of the error messages.
+ * The service will use it as a REST response in case of any failure.
+ */
 public class ErrorResponse {
 
     private String message;

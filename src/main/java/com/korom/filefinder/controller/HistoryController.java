@@ -10,6 +10,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * A REST controller class that contains all the endpoints for gathering historical data.
+ */
 @RestController
 public class HistoryController {
 

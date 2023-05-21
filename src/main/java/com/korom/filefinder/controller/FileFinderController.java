@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.nio.file.Path;
 import java.util.stream.Collectors;
 
+/**
+ * A REST controller class that has all the file query related endpoint definitions.
+ */
 @RestController
 public class FileFinderController {
 

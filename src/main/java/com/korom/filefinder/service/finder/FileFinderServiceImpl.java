@@ -14,6 +14,10 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * An implementation of the file finder functionality.
+ * This one is using the local file system with the configured directory.
+ */
 @Service
 public class FileFinderServiceImpl implements FileFinderService {
 

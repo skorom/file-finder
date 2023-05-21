@@ -3,6 +3,9 @@ package com.korom.filefinder.configuration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * A configuration class to map the application properties to a JAVA object.
+ */
 @Configuration
 public class ApplicationConfig {
     @Value("${com.korom.filefinder.rootpath}")
